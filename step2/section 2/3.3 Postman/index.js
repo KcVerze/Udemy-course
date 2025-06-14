@@ -27,7 +27,7 @@ app.patch("/user/angela", (req, res) => {
 });
 
 app.delete("/user/angela", (req, res) => {
-  //Deleting
+  //Deleting user
   res.sendStatus(200);
 });
 
