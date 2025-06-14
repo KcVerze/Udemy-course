@@ -1,7 +1,12 @@
 import express from "express";
+// to import morgan, the logging middle ware
+import morgan from "morgan"
 
 const app = express();
 const port = 3000;
+
+// to use morgan
+app.use(morgan("tiny"));
 
 app.get("/", (req, res) => {
   res.send("Hello");
