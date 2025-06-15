@@ -1,3 +1,4 @@
+//express setup
 import express from "express";
 import bodyParser from "body-parser";
 import { dirname } from "path";
@@ -10,7 +11,7 @@ const port = 3000;
 var userIsAuthorised = false;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
+// the middle ware for logic 
 function passwordCheck(req, res, next) {
   const password = req.body["password"];
   if (password === "ILoveProgramming") {
@@ -18,11 +19,14 @@ function passwordCheck(req, res, next) {
   }
   next();
 }
+//middle ware usage
 app.use(passwordCheck);
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
+
+//middle ware response
 
 app.post("/check", (req, res) => {
   if (userIsAuthorised) {
